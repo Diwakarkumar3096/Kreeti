@@ -1,12 +1,14 @@
 const express=require("express");
-
-
-const PORT=8090;
-const HOST= '0.0.0.0';
+const path = require("path");
 
 const app=express();
+const PORT=process.env.port || 8090;
+const HOST= '0.0.0.0';
+app.use(express.static(path.join(__dirname,'public')))
+
+
 app.get('/',(req,res)=>{
-   res.send("Hello World")
+   res.send("Hello dear")
 
 })
 app.listen(PORT);
